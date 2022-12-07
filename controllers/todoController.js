@@ -1,4 +1,3 @@
-import { error } from "console";
 import Todo from "../models/todo";
 
 const createTodo =(req, res, next) =>{
