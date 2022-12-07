@@ -1,4 +1,4 @@
-import Todo from "../models/todo";
+import Todo from "../models/todo.js";
 
 const createTodo =(req, res, next) =>{
 const todo  = new Todo ({
@@ -6,7 +6,9 @@ const todo  = new Todo ({
     content: req.body.content,
     date: req.body.date,
 });
-todo.save().then((result)=>{
+todo
+.save()
+.then((result)=>{
     res.status(201).json({
         message:"Task Added Successfully",
         post:{
@@ -94,3 +96,7 @@ const deleteTodo =(req, res, next)=>{
         res.status(500).jon({message:"Couldnot delet task"});
     });
 };
+
+
+const todoController = { createTodo,getTodoById,getTodos, updateTodo, deleteTodo };
+export default todoController;
